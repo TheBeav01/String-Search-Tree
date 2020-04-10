@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         SearchTree searchTree = new SearchTree();
-        searchTree.buildTree("Dirt", "Dirty", "Dirt Sapling", "Sapling", "Iron", "Iron Blocks", "Iron Bricks",
-                "Iron Sapling");
+        searchTree.buildTree("mc:dirt", "mc:dirty", "xd:dirt_sapling", "a:sapling", "ab:iron", "d:iron_blocks", "x:Iron Bricks",
+                "x:Iron Sapling");
         searchTree.printKeyset("D");
         searchTree.printKeyset("I");
         searchTree.printKeyset("X");

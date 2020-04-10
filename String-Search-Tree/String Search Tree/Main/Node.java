@@ -6,26 +6,26 @@ import java.util.TreeSet;
 public class Node {
     private Set<Edge> edgeSet;
     private boolean endOfWord = false;
-    private String wordStr;
+    private String name, domain;
     public Node() {
         edgeSet = new TreeSet<Edge>();
     }
-    public void addNode(char data) {
-        Set<Edge> tmp = edgeSet;
-        if(edgeSet.size() == 0) {
-            edgeSet.add(new Edge(data,this, new Node()));
-        }
-        else {
-            for (Edge edge : edgeSet) {
-                if (!edge.getData().equals(data)) {
-                    tmp.add(new Edge(data, this, new Node()));
-                    return;
-                }
-            }
-            edgeSet = tmp;
-        }
-
-    }
+//    public void addNode(char data) {
+//        Set<Edge> tmp = edgeSet;
+//        if(edgeSet.size() == 0) {
+//            edgeSet.add(new Edge(data,this, new Node()));
+//        }
+//        else {
+//            for (Edge edge : edgeSet) {
+//                if (!edge.getData().equals(data)) {
+//                    tmp.add(new Edge(data, this, new Node()));
+//                    return;
+//                }
+//            }
+//            edgeSet = tmp;
+//        }
+//
+//    }
     public Edge addEdge(char label, Node parent) {
         Edge e = new Edge(label, parent, new Node());
         edgeSet.add(e);
@@ -72,11 +72,16 @@ public class Node {
         return endOfWord;
     }
 
-    public void setWordStr(String wordStr) {
-        this.wordStr = wordStr;
+    public void setNames(String name, String domain) {
+        this.name = name;
+        this.domain = domain;
     }
 
-    public String getWordStr() {
-        return wordStr;
+    public String getName() {
+        return name;
+    }
+
+    public String getFullName() {
+        return domain + ":" + name;
     }
 }
